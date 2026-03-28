@@ -32,11 +32,11 @@ db.exec(`
 // ─── Routes ───────────────────────────────────────────────────────────────────
 
 app.post('/api/pokemon/cycle', (req: Request, res: Response) => {
-  const { dex_id } = req.body;
+  const { dex_id, name } = req.body;
 
   if (db.prepare('SELECT 1 FROM pkmn WHERE dex_id = ?').get(dex_id) === undefined)
   {
-    db.prepare('INSERT INTO pkmn (dex_id, caught, shiny) VALUES (?, 1, 0)').run(dex_id);
+    db.prepare('INSERT INTO pkmn (dex_id, name, caught, shiny) VALUES (?, ?, 1, 0)').run(dex_id, name);
   }
   else
   {
@@ -54,6 +54,12 @@ app.post('/api/pokemon/cycle', (req: Request, res: Response) => {
   const updated = db.prepare('SELECT dex_id, caught, shiny FROM pkmn WHERE dex_id = ?').get(dex_id);
   res.json(updated);
 });
+
+app.get('/api/pokemon', (req: Request, res: Response) => {
+  const stored = db.prepare('SELECT dex_id, caught, shiny FROM pkmn').all();
+
+  res.json(stored)
+})
 
 // ─── Start ────────────────────────────────────────────────────────────────────
 

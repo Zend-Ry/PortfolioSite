@@ -459,8 +459,28 @@ export default function PokemonLivingDex() {
 
     useEffect(() => {
         Promise.all([fetchPokemonSpeciesList(), fetchPokemonList()])
-            .then(([species, allPokemon]) => {
+            .then(async ([species, allPokemon]) => {
                 setPokemonCollection(buildInitialCollection(species, allPokemon));
+                const response = await fetch('http://localhost:3001/api/pokemon', {
+                    method: 'GET',
+                    headers: { 'Content-Type': 'application/json' }
+                })
+
+                const collection = await response.json();
+                setPokemonCollection((curr) => {
+                    return curr.map((pokemon) => {
+                        const dbEntry = collection.find((d: {dex_id: number}) => d.dex_id === pokemon.id);
+
+                        if (dbEntry !== undefined)
+                        {
+                            if (pokemon.id === dbEntry.dex_id)
+                            {
+                                return {...pokemon, isCaught: dbEntry.caught === 1, isShinyCaught: dbEntry.shiny === 1};
+                            }
+                        }
+                        return pokemon;
+                    })
+                });
             })
             .catch((err: unknown) => {
                 setFetchError(err instanceof Error ? err.message : 'Failed to load full Pokemon and form list');
@@ -503,7 +523,7 @@ export default function PokemonLivingDex() {
             );
 
             for (const chunk of splitIntoChunks(baseSpeciesEntries, BOX_SIZE)) {
-                chunk.forEach((entry) => assignedEntryKeys.add(entry.entryKey));
+                chunk.forEach((entry) => assignedEntryKeys.add(entry.entryKey));``
                 groups.push({boxNumber, entries: chunk, generation: generation.gen, formsOnly: false});
                 boxNumber += 1;
             }
@@ -567,9 +587,12 @@ export default function PokemonLivingDex() {
     }, [boxedGroups, filteredPokemonCollection]);
 
     const toggleCaught = async (entryKey: string) => {
+
+        const previousPokemon = pokemonCollection.find((p) => p.entryKey === entryKey);
+        previousPokemonRef.current = previousPokemon ?? null;
+
+        // Update local state immediately for responsive UI
         setPokemonCollection((prev) => {
-            const previousPokemon = prev.find((p) => p.entryKey === entryKey);
-            previousPokemonRef.current = previousPokemon ?? null;
 
             if (!previousPokemon) {
                 return prev;
@@ -580,12 +603,14 @@ export default function PokemonLivingDex() {
             );
         });
 
+        // optimistically update backend, but don't block UI and don't revert on failure since user can manually fix it later by clicking again
         const response = await fetch('http://localhost:3001/api/pokemon/cycle', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ dex_id: previousPokemonRef.current.id })
+            body: JSON.stringify({ dex_id: previousPokemonRef.current.id, name: previousPokemonRef.current.name })
         });
 
+        // Fallback if backend update fails - restore previous state
         if (!response.ok) {
             // restore previous state
             setPokemonCollection((prev) =>
