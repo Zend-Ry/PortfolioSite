@@ -22,10 +22,9 @@ db.exec(`
   CREATE TABLE IF NOT EXISTS pkmn (
     dex_id INTEGER NOT NULL,
     name TEXT,
-    form TEXT NOT NULL DEFAULT 'default',
     caught INTEGER NOT NULL DEFAULT 0 CHECK (caught IN(0, 1)),
     shiny INTEGER NOT NULL DEFAULT 0 CHECK (shiny IN(0, 1)),
-    PRIMARY KEY (dex_id, form),
+    PRIMARY KEY (dex_id),
     CHECK (NOT (shiny = 1 AND caught = 0))
   );
 `);
@@ -33,26 +32,26 @@ db.exec(`
 // ─── Routes ───────────────────────────────────────────────────────────────────
 
 app.post('/api/pokemon/cycle', (req: Request, res: Response) => {
-  const { dex_id, form } = req.body;
+  const { dex_id } = req.body;
 
-  if (db.prepare('SELECT 1 FROM pkmn WHERE dex_id = ? AND form = ?').get(dex_id, form) === undefined)
+  if (db.prepare('SELECT 1 FROM pkmn WHERE dex_id = ?').get(dex_id) === undefined)
   {
-    db.prepare('INSERT INTO pkmn (dex_id, form, caught, shiny) VALUES (?, ?, 1, 0)').run(dex_id, form);
+    db.prepare('INSERT INTO pkmn (dex_id, caught, shiny) VALUES (?, 1, 0)').run(dex_id);
   }
   else
   {
-    const row = db.prepare('SELECT caught, shiny FROM pkmn WHERE dex_id = ? AND form = ?').get(dex_id, form) as { caught: number; shiny: number };
+    const row = db.prepare('SELECT caught, shiny FROM pkmn WHERE dex_id = ?').get(dex_id) as { caught: number; shiny: number };
 
     if (row.caught === 1 && row.shiny === 0) {
-      db.prepare('UPDATE pkmn SET shiny = ? WHERE dex_id = ? AND form = ?').run(1, dex_id, form);
+      db.prepare('UPDATE pkmn SET shiny = ? WHERE dex_id = ?').run(1, dex_id);
     } else if (row.caught === 1 && row.shiny === 1) {
-      db.prepare('UPDATE pkmn SET caught = ?, shiny = ? WHERE dex_id = ? AND form = ?').run(0, 0, dex_id, form);
+      db.prepare('UPDATE pkmn SET caught = ?, shiny = ? WHERE dex_id = ?').run(0, 0, dex_id);
     } else {
-      db.prepare('UPDATE pkmn SET caught = ? WHERE dex_id = ? AND form = ?').run(1, dex_id, form);
+      db.prepare('UPDATE pkmn SET caught = ? WHERE dex_id = ?').run(1, dex_id);
     }
   }
 
-  const updated = db.prepare('SELECT dex_id, form, caught, shiny FROM pkmn WHERE dex_id = ? AND form = ?').get(dex_id, form);
+  const updated = db.prepare('SELECT dex_id, caught, shiny FROM pkmn WHERE dex_id = ?').get(dex_id);
   res.json(updated);
 });
 
