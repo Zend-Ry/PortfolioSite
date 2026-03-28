@@ -1,4 +1,4 @@
-﻿import {useState, useEffect, useMemo} from 'react';
+﻿import {useState, useEffect, useMemo, useRef} from 'react';
 import {Link} from 'react-router';
 import {ArrowLeft, ChevronDown, Sun, Moon} from 'lucide-react';
 import {motion, AnimatePresence} from 'motion/react';
@@ -449,6 +449,7 @@ function DualProgressBar({
 
 export default function PokemonLivingDex() {
     const {theme, colors, toggleTheme} = useTheme();
+    const previousPokemonRef = useRef<LivingDexPokemon | null>(null);
     const [generationsOpen, setGenerationsOpen] = useState(false);
     const [boxedView, setBoxedView] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
@@ -565,12 +566,34 @@ export default function PokemonLivingDex() {
             .filter((group) => group.entries.length > 0);
     }, [boxedGroups, filteredPokemonCollection]);
 
-    const toggleCaught = (entryKey: string) => {
-        setPokemonCollection((prev) =>
-            prev.map((pokemon) =>
+    const toggleCaught = async (entryKey: string) => {
+        setPokemonCollection((prev) => {
+            const previousPokemon = prev.find((p) => p.entryKey === entryKey);
+            previousPokemonRef.current = previousPokemon ?? null;
+
+            if (!previousPokemon) {
+                return prev;
+            }
+
+            return prev.map((pokemon) =>
                 pokemon.entryKey === entryKey ? getNextCatchState(pokemon) : pokemon,
-            ),
-        );
+            );
+        });
+
+        const response = await fetch('http://localhost:3001/api/pokemon/cycle', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ dex_id: previousPokemonRef.current.id })
+        });
+
+        if (!response.ok) {
+            // restore previous state
+            setPokemonCollection((prev) =>
+                prev.map((pokemon) =>
+                    pokemon.entryKey === entryKey ? previousPokemonRef.current! : pokemon
+                )
+            );
+        }
     };
 
     const renderPokemonCard = (pokemon: LivingDexPokemon) => {
