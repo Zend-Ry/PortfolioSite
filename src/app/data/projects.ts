@@ -1,9 +1,6 @@
 import {miscProjectsMedia, pantryRaidMedia} from './projectMedia';
 import {freezeGroundersMedia} from "./projectMedia";
 import {websiteMedia} from "./projectMedia";
-import logoPantryRaid from "*.png";
-import TinkersTool from "../../assets/project-pages/misc-projects/TinkersToolOptim.gif";
-import LivingDex from "../../assets/project-pages/website/LivingDex.png";
 
 export interface Project {
     id: number;
