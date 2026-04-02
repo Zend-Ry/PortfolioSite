@@ -608,7 +608,7 @@ export default function PokemonLivingDex() {
         });
 
         // optimistically update backend, but don't block UI and don't revert on failure since user can manually fix it later by clicking again
-        const response = await fetch('/api/pokemon', {
+        const response = await fetch('/api/pokemon/cycle', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'authorization': secretKey },
             body: JSON.stringify({ dex_id: previousPokemonRef.current.id, name: previousPokemonRef.current.name })
