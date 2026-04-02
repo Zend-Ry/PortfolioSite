@@ -464,7 +464,7 @@ export default function PokemonLivingDex() {
         Promise.all([fetchPokemonSpeciesList(), fetchPokemonList()])
             .then(async ([species, allPokemon]) => {
                 setPokemonCollection(buildInitialCollection(species, allPokemon));
-                const response = await fetch('http://localhost:3001/api/pokemon', {
+                const response = await fetch('/api/pokemon', {
                     method: 'GET',
                     headers: { 'Content-Type': 'application/json' }
                 })
@@ -608,7 +608,7 @@ export default function PokemonLivingDex() {
         });
 
         // optimistically update backend, but don't block UI and don't revert on failure since user can manually fix it later by clicking again
-        const response = await fetch('http://localhost:3001/api/pokemon/cycle', {
+        const response = await fetch('/api/pokemon', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'authorization': secretKey },
             body: JSON.stringify({ dex_id: previousPokemonRef.current.id, name: previousPokemonRef.current.name })
