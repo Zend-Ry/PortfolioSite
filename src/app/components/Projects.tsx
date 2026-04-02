@@ -11,7 +11,7 @@ export function Projects() {
   return (
     <section
       id="projects"
-      className="min-h-screen flex items-center justify-center py-20"
+      className="py-16"
     >
       <div className="max-w-6xl mx-auto px-6">
         <h2 className="text-4xl md:text-5xl mb-12 text-center" style={{ color: colors.text }}>
@@ -23,12 +23,19 @@ export function Projects() {
           {featuredProjects.map((project) => (
             <div
               key={project.id}
-              className="rounded-lg overflow-hidden transition-transform hover:scale-105"
+              className="relative rounded-lg overflow-hidden transition-transform hover:scale-105 cursor-pointer"
               style={{ 
                 backgroundColor: colors.cardBg,
                 boxShadow: theme === 'light' ? '0 2px 10px rgba(0,0,0,0.08)' : 'none'
               }}
             >
+              {/* Full-area link overlay */}
+              <Link
+                to={`/projects/${project.id}`}
+                className="absolute inset-0 z-0"
+                aria-label={`View details for ${project.title}`}
+              />
+
               <div className="aspect-video overflow-hidden">
                 <ImageWithFallback
                   src={project.image}
@@ -41,10 +48,7 @@ export function Projects() {
                 <h3 className="text-xl mb-3" style={{ color: colors.text }}>
                   {project.title}
                 </h3>
-                <p
-                  className="mb-4 text-sm leading-relaxed"
-                  style={{ color: colors.textSecondary }}
-                >
+                <p className="mb-4 text-sm leading-relaxed" style={{ color: colors.textSecondary }}>
                   {project.description}
                 </p>
 
@@ -63,7 +67,8 @@ export function Projects() {
                   ))}
                 </div>
 
-                <div className="flex gap-4">
+                {/* Links — raised above the overlay */}
+                <div className="relative z-10 flex gap-4">
                   <Link
                     to={`/projects/${project.id}`}
                     className="flex items-center gap-2 transition-colors hover:opacity-80"

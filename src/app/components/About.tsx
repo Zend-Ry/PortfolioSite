@@ -27,7 +27,7 @@ export function About() {
                             }}
                             aria-label="Default profile placeholder"
                         >
-                            <User size={120} style={{color: colors.primary}} aria-hidden="true" />
+                            <User size={120} style={{color: colors.primary}} aria-hidden="true"/>
                         </div>
 
                         {/* Social Icons */}
@@ -115,7 +115,7 @@ export function About() {
                                     Engines & Tools
                                 </h3>
                                 <div className="flex flex-wrap gap-2">
-                                    {['Unity', 'Unreal Engine', 'Godot', 'Blender', 'Git'].map(skill => (
+                                    {['Unity', 'Unreal Engine', 'Git', 'Jira', 'Sqlite3', 'Blender', '3DS Max', 'Adobe Suite'].map(skill => (
                                         <span
                                             key={skill}
                                             className="px-3 py-1 rounded-full text-sm"
@@ -139,7 +139,7 @@ export function About() {
                                     Languages
                                 </h3>
                                 <div className="flex flex-wrap gap-2">
-                                    {['C#', 'C++', 'JavaScript', 'Python', 'GLSL'].map(lang => (
+                                    {['C#', 'C++', 'Java', 'JavaScript', 'TypeScript', 'HTML', 'CSS', 'XAML'].map(lang => (
                                         <span
                                             key={lang}
                                             className="px-3 py-1 rounded-full text-sm"
@@ -195,7 +195,11 @@ export function About() {
                                     >
                                         Outside of development, I'm usually diving into RPGs, enjoying the speed of
                                         racing games, or mindlessly enjoying first or third-person shooters. I'm also
-                                        working on a full <Link to="/pokemon-livingdex-progress" style={{color: colors.primary}}>Pokémon Living Dex</Link>, playing <a href="https://archidekt.com/collection/v2/51688" target="_blank" rel="noopener noreferrer" style={{color: colors.primary}}>Magic The Gathering</a>,
+                                        working on a full <Link to="/pokemon-livingdex-progress"
+                                                                style={{color: colors.primary}}>Pokémon Living
+                                        Dex</Link>, playing <a href="https://archidekt.com/collection/v2/51688"
+                                                               target="_blank" rel="noopener noreferrer"
+                                                               style={{color: colors.primary}}>Magic The Gathering</a>,
                                         and slowly learning the ropes of D&D and Warhammer. If there's one
                                         theme across everything, I enjoy games and picking up new hobbies; everything
                                         about their creativity and building something meaningful.

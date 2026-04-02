@@ -11,3 +11,5 @@ dist
 /dataSources.local.xml
 # Editor-based HTTP Client requests
 /httpRequests/
+.env
+backend/livingdex.db

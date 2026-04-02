@@ -81,6 +81,7 @@ export function Hero() {
     "100% résumé. 0% imposter syndrome. (Okay, maybe 20%)",
     "Nat 20! :D",
     "Nat 1! :(",
+    "Enigma\nArchon Plate\n\"JahIthBer\"",
   ];
 
   const [currentQuote, setCurrentQuote] = useState(
@@ -152,7 +153,7 @@ export function Hero() {
         </p>
         <div className="relative max-w-2xl mx-auto mb-12 flex flex-col items-center md:block md:relative">
           <p
-            className="text-lg leading-relaxed text-center md:pr-12"
+            className="text-lg leading-relaxed text-center whitespace-pre-line"
             style={{ color: colors.textSecondary }}
           >
             {currentQuote}

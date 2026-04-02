@@ -1,30 +1,13 @@
-import { useState } from 'react';
 import { Link } from 'react-router';
-import { ArrowLeft, ExternalLink, Github, ArrowUpDown } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Github, BookOpen, Sun, Moon } from 'lucide-react';
 import { allProjects } from '../data/projects';
 import { useTheme } from '../context/ThemeContext';
-
-type SortBy = 'date' | 'name';
+import { formatProjectDateMonthYear } from '../utils/date';
 
 export default function AllProjects() {
-  const [sortBy, setSortBy] = useState<SortBy>('date');
-  const { theme, colors } = useTheme();
-  
-  const sortedProjects = [...allProjects].sort((a, b) => {
-    if (sortBy === 'date') {
-      return new Date(b.date).getTime() - new Date(a.date).getTime();
-    } else {
-      return a.title.localeCompare(b.title);
-    }
-  });
+  const { theme, toggleTheme, colors } = useTheme();
 
-  const formatDate = (dateString: string) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'long'
-    });
-  };
+  const dividerColor = theme === 'light' ? '#c9cdd6' : '#404455';
 
   return (
     <div className="min-h-screen transition-colors duration-500" style={{ backgroundColor: colors.background, color: colors.text }}>
@@ -37,6 +20,7 @@ export default function AllProjects() {
         }}
       >
         <div className="max-w-6xl mx-auto px-6 py-6">
+        <div className="flex items-center justify-between">
           <Link 
             to="/" 
             className="inline-flex items-center gap-2 transition-colors hover:opacity-80"
@@ -45,6 +29,15 @@ export default function AllProjects() {
             <ArrowLeft size={20} />
             <span>Back to Home</span>
           </Link>
+          <button
+            onClick={toggleTheme}
+            className="transition-all hover:scale-110 cursor-pointer p-2"
+            style={{ color: colors.primary }}
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+        </div>
         </div>
       </div>
 
@@ -59,104 +52,91 @@ export default function AllProjects() {
           </p>
         </div>
 
-        {/* Sort Controls */}
-        <div className="flex gap-4 mb-8">
-          <span style={{ color: colors.textSecondary }} className="flex items-center gap-2">
-            <ArrowUpDown size={16} />
-            Sort by:
-          </span>
-          <button
-            onClick={() => setSortBy('date')}
-            className="px-4 py-2 rounded transition-all"
-            style={{
-              backgroundColor: sortBy === 'date' ? colors.primary : colors.cardBg,
-              color: sortBy === 'date' ? (theme === 'light' ? '#ffffff' : '#31333c') : colors.text,
-            }}
-          >
-            Date
-          </button>
-          <button
-            onClick={() => setSortBy('name')}
-            className="px-4 py-2 rounded transition-all"
-            style={{
-              backgroundColor: sortBy === 'name' ? colors.primary : colors.cardBg,
-              color: sortBy === 'name' ? (theme === 'light' ? '#ffffff' : '#31333c') : colors.text,
-            }}
-          >
-            Name
-          </button>
-        </div>
-
         {/* Projects List */}
-        <div className="space-y-4">
-          {sortedProjects.map((project) => (
+        <div style={{ borderTop: `1.5px solid ${dividerColor}` }}>
+          {allProjects.map((project) => (
             <div
               key={project.id}
-              className="p-6 rounded-lg transition-all hover:shadow-lg"
-              style={{ 
-                backgroundColor: colors.cardBg,
-                borderLeft: `4px solid ${colors.primary}`,
-                boxShadow: theme === 'light' ? '0 2px 10px rgba(0,0,0,0.05)' : 'none'
-              }}
+              className="relative py-7 cursor-pointer"
+              style={{ borderBottom: `1.5px solid ${dividerColor}` }}
             >
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                {/* Left: Title and Date */}
-                <div className="flex-1">
-                  <Link 
-                    to={`/projects/${project.id}`}
-                    className="text-2xl hover:opacity-80 transition-opacity inline-block mb-2"
-                    style={{ color: colors.primary }}
-                  >
-                    {project.title}
-                  </Link>
-                  <p className="text-sm mb-3" style={{ color: colors.textSecondary }}>
-                    {formatDate(project.date)}
-                  </p>
-                  
-                  {/* Skills/Tags */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tags.map((tag) => (
-                      <span
-                        key={tag}
-                        className="px-3 py-1 rounded-full text-xs"
-                        style={{
-                          backgroundColor: theme === 'light' ? '#f0f1ec' : '#31333c',
-                          color: colors.primary,
-                        }}
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
+              {/* Full-area link overlay */}
+              <Link
+                to={`/projects/${project.id}`}
+                className="absolute inset-0"
+                aria-label={`View details for ${project.title}`}
+              />
 
-                {/* Right: Links */}
-                <div className="flex gap-4 items-start">
-                  {project.demoLink && (
-                    <a
-                      href={project.demoLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 transition-colors hover:opacity-80"
-                      style={{ color: colors.primary }}
+              {/* Title + Date row */}
+              <div className="flex items-baseline justify-between gap-4 mb-1">
+                <div className="flex items-center gap-2">
+                  <span className="text-base font-semibold" style={{ color: colors.text }}>
+                    {project.title}
+                  </span>
+                  {project.featured && (
+                    <span
+                      className="text-[10px] uppercase tracking-wide px-2 py-0.5 rounded-full"
+                      style={{
+                        color: '#b45309',
+                        border: '0.75px solid #f59e0b'
+                      }}
                     >
-                      <ExternalLink size={18} />
-                      <span className="text-sm">Demo</span>
-                    </a>
-                  )}
-                  {project.githubLink && (
-                    <a
-                      href={project.githubLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 transition-colors hover:opacity-80"
-                      style={{ color: colors.primary }}
-                    >
-                      <Github size={18} />
-                      <span className="text-sm">Code</span>
-                    </a>
+                      Featured
+                    </span>
                   )}
                 </div>
+                <span className="text-sm shrink-0" style={{ color: colors.textSecondary }}>
+                  {formatProjectDateMonthYear(project.date)}
+                </span>
+              </div>
+
+              {/* Tags */}
+              <div className="flex flex-wrap gap-2 mb-3">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-xs px-2 py-0.5 rounded-full"
+                    style={{ border: `1px solid ${colors.primary}`, color: colors.primary }}
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* Links — raised above the overlay */}
+              <div className="relative z-10 flex gap-5">
+                <Link
+                  to={`/projects/${project.id}`}
+                  className="flex items-center gap-1.5 text-sm transition-opacity hover:opacity-70"
+                  style={{ color: colors.textSecondary }}
+                >
+                  <BookOpen size={14} />
+                  Details
+                </Link>
+                {project.demoLink && (
+                  <a
+                    href={project.demoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 text-sm transition-opacity hover:opacity-70"
+                    style={{ color: colors.textSecondary }}
+                  >
+                    <ExternalLink size={14} />
+                    Link
+                  </a>
+                )}
+                {project.githubLink && (
+                  <a
+                    href={project.githubLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 text-sm transition-opacity hover:opacity-70"
+                    style={{ color: colors.textSecondary }}
+                  >
+                    <Github size={14} />
+                    Code
+                  </a>
+                )}
               </div>
             </div>
           ))}

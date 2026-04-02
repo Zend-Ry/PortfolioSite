@@ -1,4 +1,4 @@
-import { Mail, Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin, Instagram } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 
 export function Contact() {
@@ -7,7 +7,7 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-screen flex items-center justify-center py-12"
+      className="py-16"
     >
       <div className="max-w-4xl mx-auto px-6 text-center">
         <h2 className="text-4xl md:text-5xl mb-12" style={{ color: colors.text }}>
@@ -26,20 +26,23 @@ export function Contact() {
         </p>
 
         <div className="flex justify-center gap-8 mb-12">
+
+            <a
+                href="https://www.instagram.com/riley.cc.daigle/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-4 rounded-full transition-all hover:scale-110 duration-300"
+                style={{
+                    backgroundColor: colors.cardBg,
+                    color: colors.primary,
+                    boxShadow: theme === 'light' ? '0 2px 10px rgba(0,0,0,0.08)' : 'none'
+                }}
+                aria-label="Instagram"
+            >
+                <Instagram size={28} />
+            </a>
           <a
-            href="mailto:your.email@example.com"
-            className="p-4 rounded-full transition-all hover:scale-110 duration-300"
-            style={{
-              backgroundColor: colors.cardBg,
-              color: colors.primary,
-              boxShadow: theme === 'light' ? '0 2px 10px rgba(0,0,0,0.08)' : 'none'
-            }}
-            aria-label="Email"
-          >
-            <Mail size={28} />
-          </a>
-          <a
-            href="https://github.com/yourusername"
+            href="https://github.com/Zend-Ry"
             target="_blank"
             rel="noopener noreferrer"
             className="p-4 rounded-full transition-all hover:scale-110 duration-300"
@@ -53,7 +56,7 @@ export function Contact() {
             <Github size={28} />
           </a>
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://www.linkedin.com/in/rileydaigle/"
             target="_blank"
             rel="noopener noreferrer"
             className="p-4 rounded-full transition-all hover:scale-110 duration-300"
@@ -69,14 +72,16 @@ export function Contact() {
         </div>
 
         <a
-          href="mailto:your.email@example.com"
+          href="https://www.linkedin.com/messaging/compose/?to=rileydaigle"
+          target="_blank"
+          rel="noopener noreferrer"
           className="inline-block px-8 py-3 rounded-lg transition-all hover:scale-105"
           style={{
             backgroundColor: colors.primary,
             color: theme === 'light' ? '#ffffff' : '#31333c',
           }}
         >
-          Send Message
+          Send a Message via LinkedIn
         </a>
 
         <footer

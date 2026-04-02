@@ -3,13 +3,18 @@ import cors from 'cors';
 import Database from 'better-sqlite3';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import dotenv from 'dotenv';
+import dotenv from 'dotenv';
+dotenv.config();
+
+const SECRET_KEY = process.env.SECRET_KEY;
 
 const app  = express();
 const PORT = process.env.PORT ?? 3001;
 
 // ─── Middleware ───────────────────────────────────────────────────────────────
 
-app.use(cors({ origin: 'http://localhost:5173' })); // your Vite dev URL
+app.use(cors({ origin: process.env.ALLOWED_ORIGIN }));
 app.use(express.json());
 
 // ─── Database ─────────────────────────────────────────────────────────────────
@@ -32,6 +37,13 @@ db.exec(`
 // ─── Routes ───────────────────────────────────────────────────────────────────
 
 app.post('/api/pokemon/cycle', (req: Request, res: Response) => {
+  const key = req.headers['authorization'];
+
+  if (key !== SECRET_KEY) {
+    res.status(401).json({ error: 'Unauthorized' });
+    return;
+  }
+
   const { dex_id, name } = req.body;
 
   if (db.prepare('SELECT 1 FROM pkmn WHERE dex_id = ?').get(dex_id) === undefined)

@@ -11,6 +11,7 @@ import {
     type PokeApiListItem,
     type PokeApiSpeciesListItem
 } from '../data/pokeapiCacheClient';
+import { useSearchParams } from 'react-router';
 
 const SHINY_COLOR = '#F0C040';
 const BOX_SIZE = 30;
@@ -456,6 +457,8 @@ export default function PokemonLivingDex() {
     const [pokemonCollection, setPokemonCollection] = useState<LivingDexPokemon[]>([]);
     const [loading, setLoading] = useState(true);
     const [fetchError, setFetchError] = useState<string | null>(null);
+    const [searchParams] = useSearchParams();
+    const secretKey = searchParams.get('admin');
 
     useEffect(() => {
         Promise.all([fetchPokemonSpeciesList(), fetchPokemonList()])
@@ -587,6 +590,7 @@ export default function PokemonLivingDex() {
     }, [boxedGroups, filteredPokemonCollection]);
 
     const toggleCaught = async (entryKey: string) => {
+        if (!secretKey) return;
 
         const previousPokemon = pokemonCollection.find((p) => p.entryKey === entryKey);
         previousPokemonRef.current = previousPokemon ?? null;
@@ -606,7 +610,7 @@ export default function PokemonLivingDex() {
         // optimistically update backend, but don't block UI and don't revert on failure since user can manually fix it later by clicking again
         const response = await fetch('http://localhost:3001/api/pokemon/cycle', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 'Content-Type': 'application/json', 'authorization': secretKey },
             body: JSON.stringify({ dex_id: previousPokemonRef.current.id, name: previousPokemonRef.current.name })
         });
 

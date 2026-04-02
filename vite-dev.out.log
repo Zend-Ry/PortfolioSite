@@ -1,0 +1,113 @@
+
+> @figma/my-make-file@0.0.1 dev
+> vite --host 127.0.0.1 --port 5173 --strictPort --clearScreen false
+
+
+  [32m[1mVITE[22m v6.3.5[39m  [2mready in [0m[1m305[22m[2m[0m ms[22m
+
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://127.0.0.1:[1m5173[22m/[39m
+[2m[32m  ➜[39m[22m[2m  press [22m[1mh + enter[22m[2m to show help[22m
+[2m8:41:07 p.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m8:41:13 p.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m8:45:33 p.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m8:45:36 p.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m8:45:58 p.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m8:46:25 p.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m8:47:19 p.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m9:15:21 p.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m10:38:25 p.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m10:42:37 p.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m10:43:38 p.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m10:43:45 p.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m11:04:15 p.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m11:04:26 p.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m11:19:19 p.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m11:21:11 p.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m11:21:55 p.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m11:56:04 p.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m11:56:47 p.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m11:58:31 p.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m11:58:36 p.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m11:59:33 p.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:01:27 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:04:27 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:04:32 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:04:44 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:05:44 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:05:49 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:06:37 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:06:50 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:08:15 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:10:54 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:11:24 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:11:32 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:11:40 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:14:38 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:18:39 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:23:48 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:26:41 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:26:56 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:26:59 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:27:08 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:27:18 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:28:06 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:29:07 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:29:14 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:29:41 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:29:52 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:30:28 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:30:32 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:34:05 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:34:06 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:34:10 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:34:16 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:34:25 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:34:35 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:34:44 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:34:46 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:35:20 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:35:56 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:36:03 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:36:21 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:36:40 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:37:30 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:38:00 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:38:12 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:38:14 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:38:39 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:38:45 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:39:14 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:57:46 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:57:49 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:57:52 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:57:53 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:57:56 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:57:58 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:57:58 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:58:00 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:58:04 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:58:08 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m12:58:12 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/App.tsx, /src/styles/index.css[22m
+[2m12:58:14 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/App.tsx, /src/styles/index.css[22m
+[2m12:58:16 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/App.tsx, /src/styles/index.css[22m
+[2m12:58:18 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/App.tsx, /src/styles/index.css[22m
+[2m12:58:19 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/App.tsx, /src/styles/index.css[22m
+[2m12:58:49 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/App.tsx, /src/styles/index.css[22m
+[2m12:58:54 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/App.tsx, /src/styles/index.css[22m
+[2m12:58:56 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/App.tsx, /src/styles/index.css[22m
+[2m12:59:29 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/App.tsx, /src/styles/index.css[22m
+[2m12:59:33 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/App.tsx, /src/styles/index.css[22m
+[2m1:00:24 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/App.tsx, /src/styles/index.css[22m
+[2m1:01:22 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/App.tsx, /src/styles/index.css[22m
+[2m1:01:34 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/App.tsx, /src/styles/index.css[22m
+[2m1:02:09 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/App.tsx, /src/styles/index.css[22m
+[2m1:03:44 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32m✨ new dependencies optimized: [33mreact-router-dom[32m[39m
+[2m1:03:44 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32m✨ optimized dependencies changed. reloading[39m
+[2m1:05:34 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m1:05:40 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m1:07:16 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m1:10:41 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m1:11:17 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m1:12:22 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m1:12:26 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m
+[2m1:12:28 a.m.[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/app/pages/PokemonLivingDex.tsx, /src/styles/index.css[22m

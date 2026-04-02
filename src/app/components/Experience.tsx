@@ -5,82 +5,49 @@ export function Experience() {
 
   const experience = [
     {
-      role: "Game Developer",
-      company: "Company Name / Indie",
-      period: "2024 - Present",
-      description: "Leading development on multiple game projects, implementing core gameplay systems and optimizing performance.",
-      achievements: [
-        "Developed and shipped 2 commercial games",
-        "Implemented advanced AI systems and procedural generation",
-        "Collaborated with artists and designers on cross-functional teams"
-      ]
+      role: "Receiver",
+      company: "Canada Computers · Ottawa, Ontario",
+      period: "2023 – Present",
     },
     {
-      role: "Junior Game Programmer",
-      company: "Previous Company",
-      period: "2022 - 2024",
-      description: "Worked on gameplay features, UI systems, and bug fixes for mobile games.",
-      achievements: [
-        "Built reusable UI components used across 5+ projects",
-        "Reduced load times by 40% through asset optimization",
-        "Mentored 2 junior developers on best practices"
-      ]
+      role: "Technology Consultant",
+      company: "Staples · Huntsville, Ontario",
+      period: "2018 – 2022",
     }
   ];
+
+  const dividerColor = theme === 'light' ? '#c9cdd6' : '#404455';
 
   return (
     <section id="experience" className="py-12">
       <div className="max-w-6xl mx-auto px-6">
         <div className="mb-8">
-          <h3 className="text-3xl" style={{ fontFamily: 'SUSE, sans-serif' }}>
+          <h3 className="text-3xl" style={{ fontFamily: 'SUSE, sans-serif', color: colors.text }}>
             <span style={{ color: colors.primary }}>Experience</span>
           </h3>
         </div>
-        
-        <div className="space-y-6">
+
+        <div style={{ borderTop: `1.5px solid ${dividerColor}` }}>
           {experience.map((item, index) => (
-            <div 
+            <div
               key={index}
-              className="p-6 rounded-lg transition-all hover:shadow-lg"
-              style={{ 
-                backgroundColor: colors.cardBg,
-                borderLeft: `4px solid ${colors.primary}`,
-                boxShadow: theme === 'light' ? '0 2px 10px rgba(0,0,0,0.05)' : 'none'
-              }}
+              className="py-7"
+              style={{ borderBottom: `1.5px solid ${dividerColor}` }}
             >
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-3">
-                <div>
-                  <h4 className="text-xl mb-1" style={{ color: colors.text }}>
-                    {item.role}
-                  </h4>
-                  <p className="text-sm" style={{ color: colors.primary }}>
-                    {item.company}
-                  </p>
-                </div>
-                <span 
-                  className="text-sm px-3 py-1 rounded-full mt-2 md:mt-0 w-fit"
-                  style={{ backgroundColor: theme === 'light' ? '#f0f1ec' : '#31333c', color: colors.primary }}
-                >
+              {/* Role + Period row */}
+              <div className="flex items-baseline justify-between gap-4 mb-1">
+                <h4 className="text-base font-semibold" style={{ color: colors.text }}>
+                  {item.role}
+                </h4>
+                <span className="text-sm shrink-0" style={{ color: colors.textSecondary }}>
                   {item.period}
                 </span>
               </div>
-              <p className="text-sm mb-4 leading-relaxed" style={{ color: colors.textSecondary }}>
-                {item.description}
+
+              {/* Company */}
+              <p className="text-sm" style={{ color: colors.primary }}>
+                {item.company}
               </p>
-              
-              {item.achievements && (
-                <ul className="space-y-2 list-disc list-inside">
-                  {item.achievements.map((achievement, achIndex) => (
-                    <li 
-                      key={achIndex}
-                      className="text-sm"
-                      style={{ color: colors.textSecondary }}
-                    >
-                      {achievement}
-                    </li>
-                  ))}
-                </ul>
-              )}
             </div>
           ))}
         </div>

@@ -19,7 +19,7 @@ export function ImageGallery({ images, columns = 3 }: ImageGalleryProps) {
           <ImageWithFallback 
             src={image.src} 
             alt={image.alt}
-            className="w-full h-full object-cover aspect-video"
+            className="w-full h-64 object-contain"
           />
         </div>
       ))}
