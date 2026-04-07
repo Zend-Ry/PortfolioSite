@@ -115,7 +115,7 @@ export function About() {
                                     Engines & Tools
                                 </h3>
                                 <div className="flex flex-wrap gap-2">
-                                    {['Unity', 'Unreal Engine', 'Godot', 'Blender', 'Git'].map(skill => (
+                                    {['Unity', 'Unreal Engine', 'Git', 'Jira', 'Sqlite3', 'Blender', '3DS Max', 'Adobe Suite'].map(skill => (
                                         <span
                                             key={skill}
                                             className="px-3 py-1 rounded-full text-sm"
@@ -139,7 +139,7 @@ export function About() {
                                     Languages
                                 </h3>
                                 <div className="flex flex-wrap gap-2">
-                                    {['C#', 'C++', 'JavaScript', 'Python', 'GLSL'].map(lang => (
+                                    {['C#', 'C++', 'Java', 'JavaScript', 'TypeScript', 'HTML', 'CSS', 'XAML'].map(lang => (
                                         <span
                                             key={lang}
                                             className="px-3 py-1 rounded-full text-sm"
