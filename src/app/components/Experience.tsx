@@ -34,7 +34,6 @@ export function Experience() {
               className="py-7"
               style={{ borderBottom: `1.5px solid ${dividerColor}` }}
             >
-              {/* Role + Period row */}
               <div className="flex items-baseline justify-between gap-4 mb-1">
                 <h4 className="text-base font-semibold" style={{ color: colors.text }}>
                   {item.role}
@@ -44,7 +43,6 @@ export function Experience() {
                 </span>
               </div>
 
-              {/* Company */}
               <p className="text-sm" style={{ color: colors.primary }}>
                 {item.company}
               </p>

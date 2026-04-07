@@ -23,19 +23,12 @@ export function Projects() {
           {featuredProjects.map((project) => (
             <div
               key={project.id}
-              className="relative rounded-lg overflow-hidden transition-transform hover:scale-105 cursor-pointer"
+              className="rounded-lg overflow-hidden transition-transform hover:scale-105"
               style={{ 
                 backgroundColor: colors.cardBg,
                 boxShadow: theme === 'light' ? '0 2px 10px rgba(0,0,0,0.08)' : 'none'
               }}
             >
-              {/* Full-area link overlay */}
-              <Link
-                to={`/projects/${project.id}`}
-                className="absolute inset-0 z-0"
-                aria-label={`View details for ${project.title}`}
-              />
-
               <div className="aspect-video overflow-hidden">
                 <ImageWithFallback
                   src={project.image}
@@ -48,7 +41,10 @@ export function Projects() {
                 <h3 className="text-xl mb-3" style={{ color: colors.text }}>
                   {project.title}
                 </h3>
-                <p className="mb-4 text-sm leading-relaxed" style={{ color: colors.textSecondary }}>
+                <p
+                  className="mb-4 text-sm leading-relaxed"
+                  style={{ color: colors.textSecondary }}
+                >
                   {project.description}
                 </p>
 
@@ -67,8 +63,7 @@ export function Projects() {
                   ))}
                 </div>
 
-                {/* Links — raised above the overlay */}
-                <div className="relative z-10 flex gap-4">
+                <div className="flex gap-4">
                   <Link
                     to={`/projects/${project.id}`}
                     className="flex items-center gap-2 transition-colors hover:opacity-80"
@@ -107,7 +102,6 @@ export function Projects() {
           ))}
         </div>
 
-        {/* View All Projects Button */}
         <div className="flex justify-center mt-12">
           <Link
             to="/projects"

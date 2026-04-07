@@ -92,8 +92,7 @@ export function CodeBlock({
           border: '1px solid #2a2b36'
         }}
       >
-        {/* Header with language tag and copy button */}
-        <div 
+        <div
           className="flex items-center justify-between px-6 py-3"
           style={{ 
             backgroundColor: '#242630',
@@ -128,7 +127,6 @@ export function CodeBlock({
           </button>
         </div>
 
-        {/* Code content */}
         <SyntaxHighlighter
           language={language}
           style={customStyle}

@@ -52,7 +52,6 @@ export function Navigation() {
             &gt;
           </button>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:flex gap-8 items-center">
             {navItems.map((item) => (
               <button
@@ -65,7 +64,6 @@ export function Navigation() {
               </button>
             ))}
             
-            {/* Theme Toggle */}
             <button
               onClick={toggleTheme}
               className="transition-all hover:scale-110 cursor-pointer p-2"
@@ -76,7 +74,6 @@ export function Navigation() {
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden cursor-pointer"
@@ -87,7 +84,6 @@ export function Navigation() {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isOpen && (
           <div className="md:hidden mt-4 pb-4">
             <div className="flex flex-col gap-4">
@@ -102,7 +98,6 @@ export function Navigation() {
                 </button>
               ))}
               
-              {/* Theme Toggle for Mobile */}
               <button
                 onClick={toggleTheme}
                 className="flex items-center gap-2 py-2 transition-colors cursor-pointer"

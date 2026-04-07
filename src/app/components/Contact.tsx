@@ -22,7 +22,7 @@ export function Contact() {
           ideas, or opportunities to collaborate. Feel free to
           reach out!
           <br />
-          Currently looking for work.
+          Currently looking for work. 2026-03-23
         </p>
 
         <div className="flex justify-center gap-8 mb-12">

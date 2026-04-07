@@ -780,21 +780,42 @@ export default function PokemonLivingDex() {
                                         return (
                                             <div
                                                 key={g.gen}
-                                                className="rounded-xl p-6 flex flex-col gap-4"
+                                                className="rounded-xl p-6 flex flex-col gap-4 relative overflow-hidden"
                                                 style={{
                                                     backgroundColor: colors.cardBg,
                                                     boxShadow: theme === 'light' ? '0 2px 10px rgba(0,0,0,0.05)' : 'none',
-                                                    borderTop: `3px solid ${g.color}`,
+                                                    backgroundImage: `radial-gradient(circle at 110% -10%, ${g.color}18 0%, transparent 55%)`,
                                                 }}
                                             >
+                                                <div
+                                                    className="absolute pointer-events-none"
+                                                    style={{
+                                                        top: '-28px', right: '-28px',
+                                                        width: '88px', height: '88px',
+                                                        borderRadius: '50%',
+                                                        border: `12px solid ${g.color}20`,
+                                                    }}
+                                                />
+                                                <div
+                                                    className="absolute pointer-events-none"
+                                                    style={{
+                                                        top: '4px', right: '4px',
+                                                        width: '12px', height: '12px',
+                                                        borderRadius: '50%',
+                                                        backgroundColor: `${g.color}30`,
+                                                        border: `2px solid ${g.color}40`,
+                                                    }}
+                                                />
+
                                                 <div className="flex items-start justify-between gap-2">
                                                     <div>
                                                         <span
-                                                            className="text-xs px-2 py-0.5 rounded"
+                                                            className="text-xs px-2 py-0.5 rounded-full font-bold"
                                                             style={{
-                                                                backgroundColor: `${g.color}22`,
-                                                                color: g.color,
+                                                                backgroundColor: g.color,
+                                                                color: '#ffffff',
                                                                 fontFamily: 'JetBrains Mono, monospace',
+                                                                letterSpacing: '0.04em',
                                                             }}
                                                         >
                                                             Gen {GENERATION_ROMAN_NUMERALS[g.gen - 1]}
@@ -940,8 +961,8 @@ export default function PokemonLivingDex() {
                                         </div>
 
                                         <div
-                                            className="grid gap-4"
-                                            style={{gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))'}}
+                                            className="grid gap-2"
+                                            style={{gridTemplateColumns: 'repeat(6, minmax(0, 1fr))'}}
                                         >
                                             {box.entries.map(renderPokemonCard)}
                                         </div>

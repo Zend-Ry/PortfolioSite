@@ -87,11 +87,13 @@ export function Hero() {
   const [currentQuote, setCurrentQuote] = useState(
     () => quotes[Math.floor(Math.random() * quotes.length)],
   );
+  const [refreshSpinTurns, setRefreshSpinTurns] = useState(0);
 
   const refreshQuote = () => {
     const newQuote =
       quotes[Math.floor(Math.random() * quotes.length)];
     setCurrentQuote(newQuote);
+    setRefreshSpinTurns((prev) => prev + 1);
   };
 
   const scrollToSection = (id: string) => {
@@ -109,7 +111,6 @@ export function Hero() {
       id="home"
       className="min-h-screen flex items-center justify-center relative overflow-x-hidden"
     >
-      {/* Background Image */}
       <div
         className="absolute inset-0 opacity-40 transition-opacity duration-500"
         style={{
@@ -120,7 +121,6 @@ export function Hero() {
         }}
       />
 
-      {/* Content */}
       <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
         <h1 className="text-5xl md:text-7xl mb-6 tracking-tight">
           Hi, I'm{" "}
@@ -160,14 +160,20 @@ export function Hero() {
           </p>
           <button
             onClick={refreshQuote}
-            className="mt-4 md:mt-0 md:absolute md:-right-12 md:top-1/2 md:-translate-y-1/2 p-3 md:p-2 opacity-100 hover:rotate-180 transition-all duration-300 cursor-pointer rounded-lg md:rounded-none"
+            className="mt-4 md:mt-0 md:absolute md:-right-12 md:top-1/2 md:-translate-y-1/2 p-3 md:p-2 transition-all duration-300 cursor-pointer rounded-lg md:rounded-none"
             style={{
               color: colors.primary,
               backgroundColor: "transparent",
             }}
             aria-label="Refresh quote"
           >
-            <RefreshCw className="w-6 h-6 md:w-4 md:h-4" />
+            <motion.span
+              className="inline-flex"
+              animate={{ rotate: refreshSpinTurns * 360 }}
+              transition={{ duration: 0.2, ease: "easeOut" }}
+            >
+              <RefreshCw className="w-6 h-6 md:w-4 md:h-4" />
+            </motion.span>
           </button>
         </div>
         <button

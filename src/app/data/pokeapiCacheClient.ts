@@ -208,10 +208,36 @@ export async function fetchPokemonSpeciesList(limit = 2000): Promise<PokeApiSpec
 }
 
 // Pulls the full Pokemon list, including non-default forms.
-export async function fetchPokemonList(limit = 3000): Promise<PokeApiListItem[]> {
+export async function fetchPokemonList(limit = 10000): Promise<PokeApiListItem[]> {
   const response = await fetch(`${POKEAPI_BASE_URL}/pokemon?limit=${limit}&offset=0`);
   if (!response.ok) {
     throw new Error(`Failed to fetch Pokemon list: HTTP ${response.status}`);
+  }
+
+  const payload = (await response.json()) as {
+    results?: Array<{ name: string; url: string }>;
+  };
+
+  const results = payload.results ?? [];
+  const parsed = results
+    .map((item) => {
+      const idMatch = item.url.match(/\/(\d+)\/?$/);
+      const id = idMatch ? Number(idMatch[1]) : NaN;
+      if (!Number.isFinite(id)) return null;
+      return { id, name: item.name };
+    })
+    .filter((item): item is PokeApiListItem => item !== null)
+    .sort((a, b) => a.id - b.id);
+
+  return parsed;
+}
+
+// Pulls the full pokemon-form list (includes purely cosmetic forms like Vivillon patterns
+// and Deerling seasons that may not appear in the /pokemon list endpoint).
+export async function fetchPokemonFormList(limit = 10000): Promise<PokeApiListItem[]> {
+  const response = await fetch(`${POKEAPI_BASE_URL}/pokemon-form?limit=${limit}&offset=0`);
+  if (!response.ok) {
+    throw new Error(`Failed to fetch Pokemon form list: HTTP ${response.status}`);
   }
 
   const payload = (await response.json()) as {
