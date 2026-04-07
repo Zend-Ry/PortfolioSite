@@ -13,7 +13,6 @@ export function Hero() {
     "Developer",
     "Designer",
     "Programmer",
-    "Gamer",
   ];
 
   const [currentTitleIndex, setCurrentTitleIndex] = useState(0);
@@ -178,7 +177,7 @@ export function Hero() {
         </div>
         <button
           onClick={() => scrollToSection("projects")}
-          className="px-8 py-3 rounded-lg transition-all hover:scale-105"
+          className="px-8 py-3 rounded-lg transition-all hover:scale-105 cursor-pointer"
           style={{
             backgroundColor: colors.primary,
             color: theme === "light" ? "#ffffff" : "#31333c",

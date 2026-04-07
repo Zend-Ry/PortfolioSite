@@ -11,10 +11,13 @@ export function About() {
     return (
         <section id="about" className="min-h-screen flex items-center justify-center py-20">
             <div className="max-w-6xl mx-auto px-6">
+                {/* New Hero-style About Section */}
                 <div className="flex flex-col lg:flex-row gap-8 items-start">
+                    {/* Left Side - Profile Card */}
                     <div
                         className="w-full lg:w-80 flex-shrink-0 p-8 flex flex-col items-center"
                     >
+                        {/* Profile Image */}
                         <div
                             className="w-full aspect-square rounded-xl overflow-hidden mb-6 flex items-center justify-center"
                             style={{
@@ -24,9 +27,10 @@ export function About() {
                             }}
                             aria-label="Default profile placeholder"
                         >
-                            <User size={120} style={{color: colors.primary}} aria-hidden="true" />
+                            <User size={120} style={{color: colors.primary}} aria-hidden="true"/>
                         </div>
 
+                        {/* Social Icons */}
                         <div className="flex gap-4 mb-3">
                             <a
                                 href="https://instagram.com"
@@ -60,6 +64,7 @@ export function About() {
                             </a>
                         </div>
 
+                        {/* Get in touch */}
                         <div className="flex flex-col items-center">
                             <ArrowUp size={24} style={{color: colors.primary}} className="mb-1"/>
                             <motion.span
@@ -82,6 +87,7 @@ export function About() {
                         </div>
                     </div>
 
+                    {/* Right Side - Main Content Card */}
                     <div
                         className="flex-1 rounded-xl p-8 md:p-12"
                         style={{
@@ -89,6 +95,7 @@ export function About() {
                             boxShadow: theme === 'light' ? '0 4px 20px rgba(0,0,0,0.08)' : 'none'
                         }}
                     >
+                        {/* Heading */}
                         <h2
                             className="text-4xl md:text-5xl mb-6"
                             style={{fontFamily: 'Koulen, sans-serif'}}
@@ -97,6 +104,7 @@ export function About() {
                             <span style={{color: colors.text}}>I'M RILEY</span>
                         </h2>
 
+                        {/* Skills Grid - shown at top */}
                         <div className="grid md:grid-cols-2 gap-6 mb-6">
                             <div
                                 className="p-4 rounded-lg"
@@ -147,6 +155,7 @@ export function About() {
                             </div>
                         </div>
 
+                        {/* Main intro paragraph - always visible */}
                         <p
                             className="text-base leading-relaxed mb-6"
                             style={{color: colors.textSecondary, fontFamily: 'SUSE, sans-serif'}}
@@ -160,6 +169,7 @@ export function About() {
                             code and building systems that feel responsive and satisfying to interact with.
                         </p>
 
+                        {/* Expandable content */}
                         <AnimatePresence>
                             {isExpanded && (
                                 <motion.div
@@ -194,7 +204,9 @@ export function About() {
                             )}
                         </AnimatePresence>
 
+                        {/* Bottom row with expand button and CV button */}
                         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 pt-6">
+                            {/* Read more/less button */}
                             <button
                                 onClick={() => setIsExpanded(!isExpanded)}
                                 className="flex items-center gap-2 transition-all hover:opacity-80 cursor-pointer"
@@ -213,12 +225,13 @@ export function About() {
                                 </motion.div>
                             </button>
 
+                            {/* View CV Button */}
                             <div className="flex flex-col items-start md:items-end gap-1">
                                 <button
-                                    className="px-6 py-3 rounded-lg transition-all hover:opacity-90 flex items-center gap-2 cursor-pointer"
+                                    className="px-6 py-3 rounded-lg transition-all flex items-center gap-2" /*hover:opacity-90 transition-all hover:scale-105 cursor-pointer*/
                                     style={{
-                                        backgroundColor: colors.primary,
-                                        color: theme === 'light' ? '#ffffff' : '#1a1b26',
+                                        backgroundColor: '#888888'/*colors.primary*/,
+                                        color: '#505050'/*theme === 'light' ? '#ffffff' : '#1a1b26'*/,
                                         fontFamily: 'SUSE, sans-serif'
                                     }}
                                 >
@@ -232,7 +245,7 @@ export function About() {
                                         fontFamily: 'JetBrains Mono, monospace'
                                     }}
                                 >
-                  Last Updated: 2025-05-07
+                  Last Updated: ----/--/--
                 </span>
                             </div>
                         </div>

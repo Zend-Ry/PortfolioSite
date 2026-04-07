@@ -35,6 +35,7 @@ export function Education() {
               className="py-7"
               style={{ borderBottom: `1.5px solid ${dividerColor}` }}
             >
+              {/* Degree + Year row */}
               <div className="flex items-baseline justify-between gap-4 mb-1">
                 <h4 className="text-base font-semibold" style={{ color: colors.text }}>
                   {item.degree}
@@ -44,10 +45,12 @@ export function Education() {
                 </span>
               </div>
 
+              {/* School */}
               <p className="text-sm mb-3" style={{ color: colors.primary }}>
                 {item.school}
               </p>
 
+              {/* Achievements */}
               <ul className="space-y-1">
                 {item.achievements.map((point, i) => (
                   <li key={i} className="text-sm flex gap-2" style={{ color: colors.textSecondary }}>

@@ -1,5 +1,5 @@
 import { Link, useParams } from 'react-router';
-import { ArrowLeft, ExternalLink, Github } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Github, Sun, Moon } from 'lucide-react';
 import { allProjects, ProjectBlock } from '../data/projects';
 import { TextBlock } from '../components/project-blocks/TextBlock';
 import { ImageBlock } from '../components/project-blocks/ImageBlock';
@@ -15,7 +15,7 @@ import { formatProjectDateDetail } from '../utils/date';
 export default function ProjectDetail() {
   const { id } = useParams();
   const project = allProjects.find(p => p.id === Number(id));
-  const { theme, colors } = useTheme();
+  const { theme, toggleTheme, colors } = useTheme();
 
   if (!project) {
     return (
@@ -51,18 +51,30 @@ export default function ProjectDetail() {
 
   return (
     <div className="min-h-screen transition-colors duration-500" style={{ backgroundColor: colors.background, color: colors.text }}>
+      {/* Header */}
       <div
         className="sticky top-0 z-50 transition-colors duration-500"
         style={{ backgroundColor: colors.background, borderBottom: `1px solid ${theme === 'light' ? '#e5e7eb' : '#242630'}` }}
       >
         <div className="max-w-4xl mx-auto px-6 py-6">
+        <div className="flex items-center justify-between">
           <Link to="/projects" className="inline-flex items-center gap-2 transition-colors hover:opacity-80" style={{ color: colors.primary }}>
             <ArrowLeft size={20} />
             <span>Back to All Projects</span>
           </Link>
+          <button
+            onClick={toggleTheme}
+            className="transition-all hover:scale-110 cursor-pointer p-2"
+            style={{ color: colors.primary }}
+            aria-label="Toggle theme"
+          >
+            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
+          </button>
+        </div>
         </div>
       </div>
 
+      {/* Hero */}
       <div className="max-w-4xl mx-auto px-6 py-16">
         <div className="mb-12">
           <h1 className="text-5xl md:text-6xl mb-4" style={{ color: colors.text }}>{project.title}</h1>
@@ -96,8 +108,10 @@ export default function ProjectDetail() {
           </div>
         </div>
 
+        {/* Hero image */}
         <ImageBlock src={project.image} alt={project.title} />
 
+        {/* Detail blocks or fallback */}
         {project.detailContent && project.detailContent.length > 0 ? (
           project.detailContent.map((block, i) => renderBlock(block, i))
         ) : (

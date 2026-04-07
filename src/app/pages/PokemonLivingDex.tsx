@@ -787,6 +787,7 @@ export default function PokemonLivingDex() {
                                                     backgroundImage: `radial-gradient(circle at 110% -10%, ${g.color}18 0%, transparent 55%)`,
                                                 }}
                                             >
+                                                {/* Pokeball watermark ring */}
                                                 <div
                                                     className="absolute pointer-events-none"
                                                     style={{
@@ -961,8 +962,8 @@ export default function PokemonLivingDex() {
                                         </div>
 
                                         <div
-                                            className="grid gap-2"
-                                            style={{gridTemplateColumns: 'repeat(6, minmax(0, 1fr))'}}
+                                            className="grid gap-4"
+                                            style={{gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))'}}
                                         >
                                             {box.entries.map(renderPokemonCard)}
                                         </div>

@@ -24,7 +24,7 @@ export function PokemonCard({ dexNumber, name, isCaught, isShinyCaught = false, 
     <button
       type="button"
       onClick={onClick}
-      className="relative rounded-xl p-4 flex flex-col gap-3 w-full min-w-0 text-left transition-transform hover:scale-[1.01] cursor-pointer"
+      className="relative rounded-xl p-4 flex flex-col gap-3 w-full text-left transition-transform hover:scale-[1.01] cursor-pointer"
       style={{
         backgroundColor: colors.cardBg,
         boxShadow: theme === 'light' ? '0 2px 10px rgba(0,0,0,0.05)' : 'none',
@@ -81,11 +81,11 @@ export function PokemonCard({ dexNumber, name, isCaught, isShinyCaught = false, 
         )}
       </div>
 
-      <div className="text-center min-w-0">
-        <p className="text-sm truncate" style={{ color: colors.textSecondary }}>
+      <div className="text-center">
+        <p className="text-sm" style={{ color: colors.textSecondary }}>
           {formattedDexNumber}
         </p>
-        <h3 className="text-base truncate" style={{ color: colors.text }}>
+        <h3 className="text-base" style={{ color: colors.text }}>
           {name}
         </h3>
       </div>
